@@ -1,1 +1,4 @@
 theme: jekyll-theme-minimal
+title: NATS Advisories
+description: Security advisories for the NATS.io project
+logo: https://nats.io/img/large-logo.png
