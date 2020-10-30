@@ -1,0 +1,3 @@
+
+/CVE/*.txt  text=auto eol=lf
+*.md        text=auto eol=lf whitespace=-blank-at-eol diff=markdown
