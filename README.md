@@ -25,3 +25,10 @@ avoiding an index for a new page does not help keep something secret.
 4. See deployment progress at:
    <https://github.com/nats-io/advisories/deployments/activity_log?environment=github-pages>
 
+
+## Local development
+
+1. Run `bundle install` to install the dependencies.
+2. Run `bundle exec jekyll serve` to serve a local site preview.
+
+See the [pages-themes GitHub repo](https://github.com/pages-themes/minimal#usage) for further details about customizing the template, layout, and CSS.
