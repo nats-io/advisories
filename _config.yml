@@ -2,3 +2,6 @@ theme: jekyll-theme-minimal
 title: NATS Advisories
 description: Security advisories for the NATS.io project
 logo: https://nats.io/img/large-logo.png
+security_contact: |-
+  To report a vulnerability, please send email to
+  <a href="mailto:security@nats.io">security@nats.io</a>.
