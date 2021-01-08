@@ -1,5 +1,9 @@
 ## NATS Advisories
 
+* [CVE-2020-28466](CVE/CVE-2020-28466.txt)
+  + Account service import loop caused nats-server DoS
+  + NATS server upgrade required to avoid Denial-of-Service
+  + _2021-03-15_
 * [CVE-2020-26521](CVE/CVE-2020-26521.txt)
   + Nil deref in JWT library, causing Go panic
   + NATS server upgrade required to avoid Denial-of-Service
