@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2021-3127](CVE/CVE-2021-3127.txt)
+  + Import token permissions checking not enforced
+  + _2021-03-15_
 * [CVE-2020-28466](CVE/CVE-2020-28466.txt)
   + Account service import loop caused nats-server DoS
   + NATS server upgrade required to avoid Denial-of-Service
