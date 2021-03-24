@@ -25,6 +25,12 @@ avoiding an index for a new page does not help keep something secret.
 4. See deployment progress at:
    <https://github.com/nats-io/advisories/deployments/activity_log?environment=github-pages>
 
+### Other Publications
+
+We create GitHub Security Advisories for any project on GitHub, to aid with
+ecosystem notifications.  Cross-reference the GHSA advisory and the CVE in
+this repository.  See any existing advisory for examples.
+
 
 ## Local development
 
