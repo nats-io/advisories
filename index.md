@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2021-32026](CVE/CVE-2021-32026.txt)
+  + TLS missing ciphersuite settings when CLI flags used (v.low severity)
+  + _2021-05-04_
 * [CVE-2021-3127](CVE/CVE-2021-3127.txt)
   + Import token permissions checking not enforced
   + _2021-03-15_
