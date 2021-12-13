@@ -33,7 +33,7 @@ Log4j v2 library:
   can be a pass-through vector for log-strings containing a malicious payload:
   the expected contract of logging systems is that this should be safe.
   + Anyone using log-processing software written in a language targeting the
-    JVM should be examining that software for expose.
+    JVM should be examining that software for exposure.
   + The NATS maintainers consider this to be outside of our scope of
     responsibility.  We will continue to log as appropriate, redacting secrets
     and protecting line-based logs against newline injections, but not
