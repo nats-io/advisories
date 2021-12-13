@@ -23,3 +23,9 @@
   + Information disclosure in JS client libraries
   + [MITRE](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-26149)
   + _2020-09-29_
+
+## Exposure Statements
+
+* [log4j CVE-2021-44228](statements/log4j)
+  + aka Log4Shell, aka LogJam
+  + Statement for security teams about the exposure of the NATS ecosystem
