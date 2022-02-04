@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2022-24450](CVE/CVE-2022-24450.txt)
+  + Unconstrained account assumption by authenticated clients (CRITICAL)
+  + _2022-02-07_
 * [CVE-2021-32026](CVE/CVE-2021-32026.txt)
   + TLS missing ciphersuite settings when CLI flags used (v.low severity)
   + _2021-05-04_
