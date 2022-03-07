@@ -10,3 +10,7 @@ trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[CVE/*.txt]
+# Email-friendly limits
+max_line_length = 72
