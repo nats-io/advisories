@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2022-26652](CVE/CVE-2022-26652.txt)
+  + Arbitrary file write by JetStream-enabled users
+  + _2022-03-09_
 * [CVE-2022-24450](CVE/CVE-2022-24450.txt)
   + Unconstrained account assumption by authenticated clients (CRITICAL)
   + _2022-02-07_
