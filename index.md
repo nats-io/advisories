@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2022-28357](CVE/CVE-2022-28357.txt)
+  + Arbitrary file write from the privileged system account
+  + _2022-04-18_
 * [CVE-2022-26652](CVE/CVE-2022-26652.txt)
   + Arbitrary file write by JetStream-enabled users
   + _2022-03-09_
