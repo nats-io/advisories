@@ -1,5 +1,8 @@
 ## NATS Advisories
 
+* [CVE-2022-29946](CVE/CVE-2022-29946.txt)
+  + Negative user permissions not enforced in one scenario
+  + _2022-05-04_
 * [CVE-2022-28357](CVE/CVE-2022-28357.txt)
   + Arbitrary file write from the privileged system account
   + _2022-04-18_
