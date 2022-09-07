@@ -58,10 +58,14 @@ this repository.  See any existing advisory for examples.
    Eg: <https://github.com/nats-io/nats-server/security/advisories>.  
    You can draft an advisory ahead of time; publishing the advisory is almost
    irreversible.
-4. Notify Slack in various places: natsio #general, gophers #nats
-5. If really disastrous, consider getting a tweet tweeted from the official
+4. For Go vulnerabilities, file an issue to update the
+   [Go Vulnerability Database](https://go.dev/security/vuln/database) using
+   [this ticket-opening shortcut](https://go.dev/s/vulndb-report-new), as
+   [documented in the announcement blog-post](https://go.dev/blog/vuln).
+5. Notify Slack in various places: natsio #general, gophers #nats
+6. If really disastrous, consider getting a tweet tweeted from the official
    account.
-6. Update the official CVE registration details.
+7. Update the official CVE registration details.
 
 
 ## Local development
