@@ -1,5 +1,11 @@
 ## NATS Advisories
 
+* [CVE-2022-42708](CVE/CVE-2022-42708.txt)
+  + Server panic from inappropriate JetStream replica count
+  + _2022-10-10_
+* [CVE-2022-42709](CVE/CVE-2022-42709.txt)
+  + Server panic from Account import loops, similar to [CVE-2020-28466](CVE/CVE-2020-28466.txt)
+  + _2022-10-10_
 * [CVE-2022-29946](CVE/CVE-2022-29946.txt)
   + Negative user permissions not enforced in one scenario
   + _2022-05-04_
@@ -22,6 +28,7 @@
   + Account service import loop caused nats-server DoS
   + NATS server upgrade required to avoid Denial-of-Service
   + _2021-03-15_
+  + See also: [CVE-2022-42709](CVE/CVE-2022-42709.txt)
 * [CVE-2020-26521](CVE/CVE-2020-26521.txt)
   + Nil deref in JWT library, causing Go panic
   + NATS server upgrade required to avoid Denial-of-Service
