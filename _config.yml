@@ -5,3 +5,6 @@ logo: https://nats.io/img/logo.png
 security_contact: |-
   To report a vulnerability, please send email to
   <a href="mailto:security@nats.io">security@nats.io</a>.
+security_policy:
+  url: /advisory-policy
+  linktext: We have an <em>advisory policy</em>

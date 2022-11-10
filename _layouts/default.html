@@ -23,6 +23,10 @@
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
+        {% if site.security_policy.url %}
+        <p class="policy"><a href="{{ site.security_policy.url }}">{{ site.security_policy.linktext }}</a></p>
+        {% endif %}
+
         {% if site.security_contact %}
         <p class="security">{{ site.security_contact }}</p>
         {% endif %}
