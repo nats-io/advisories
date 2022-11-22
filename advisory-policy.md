@@ -38,9 +38,14 @@ denial-of-service by unauthenticated users, will lead to prompt releases
 by the NATS maintainers.
 
 Fixes for denial of service issues with no threat of remote execution,
-when limited to account holders, are likely to just be committed to the
-main development branch with no special attention.
+when limited to those signed into an account, are likely to just be committed
+to the main development branch with no special attention.  Note that a
+server configuration which permits anonymous users is still using an account:
+the authentication is a no-op but happens.
 
-Those who are running such services are encouraged to build regularly
-from git.
+Those who are running services which allow untrusted users are encouraged to
+build regularly from git.
 
+None of this restriction applies to any failure mode beyond denial of service.
+Issues which break account isolation boundaries for data access will
+most definitely trigger our CVE process.
