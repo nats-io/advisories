@@ -27,15 +27,19 @@ avoiding an index for a new page does not help keep something secret.
 
 ### Getting a CVE assignment
 
-CVEs are typically requested from MITRE as the CNA of last resort for open
-source projects: <https://cveform.mitre.org/>
+In future, let's use GitHub's ability to request a CVE as part of drafting an
+advisory.
+Getting a CVE through the formerly used process has become not expeditious.
 
-Fill out enough details to get the number; be accurate, or withhold data, as
+~~CVEs are typically requested from MITRE as the CNA of last resort for open
+source projects: <https://cveform.mitre.org/>~~
+
+~~Fill out enough details to get the number; be accurate, or withhold data, as
 appropriate.  At this first stage, I usually make sure to classify the type of
-vulnerability and the affected version numbers, but not much more.
+vulnerability and the affected version numbers, but not much more.~~
 
-After the CVE has been published, we can update the text with another use of
-this form.
+~~After the CVE has been published, we can update the text with another use of
+this form.~~
 
 
 ### Other Publications
