@@ -87,3 +87,10 @@ Credits:
 
 Problem reported by Alex Herrington.
 Addressed publicly in a GitHub Discussion prior to this advisory.
+
+
+References:
+
+* GitHub Security Advisory for nats-server:
+  <https://github.com/nats-io/nats-server/security/advisories/GHSA-fr2g-9hjm-wr23>
+
