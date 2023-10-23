@@ -1,5 +1,9 @@
 ## NATS Advisories
 
+* [Security Note 2023-02](CVE/secnote-2023-02.txt) (aka CVE-2023-46129)
+  + nkeys: xkeys Seal encryption used fixed key for all encryption
+  + `CVE-2023-46129`; `GHSA-mr45-rx8q-wcm9`
+  + _2023-10-26_
 * [Security Note 2023-01](CVE/secnote-2023-01.txt)
   + Adding accounts for just the system account adds auth bypass
   + CVE pending; `GHSA-fr2g-9hjm-wr23`; `GO-2023-2133`
