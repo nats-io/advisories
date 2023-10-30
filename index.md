@@ -6,7 +6,7 @@
   + _2023-10-26_
 * [Security Note 2023-01](CVE/secnote-2023-01.txt)
   + Adding accounts for just the system account adds auth bypass
-  + CVE pending; `GHSA-fr2g-9hjm-wr23`; `GO-2023-2133`
+  + `CVE-2023-47090`; `GHSA-fr2g-9hjm-wr23`; `GO-2023-2133`
   + _2023-10-12_
 * [CVE-2022-42708](CVE/CVE-2022-42708.txt)
   + Server panic from inappropriate JetStream replica count

@@ -1,8 +1,7 @@
 Subject: Adding accounts for just the system account adds auth bypass
 
 NATS-advisory-ID: 2023-01
-CVE: pending
-Aliases: GHSA-fr2g-9hjm-wr23, GO-2023-2133
+Aliases: CVE-2023-47090, GHSA-fr2g-9hjm-wr23, GO-2023-2133
 Date: 2023-10-12
 Fixed-In: nats-server 2.9.23, 2.10.2
 
