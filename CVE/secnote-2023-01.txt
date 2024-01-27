@@ -17,7 +17,7 @@ authorization block is not applicable.
 Problem Description:
 
 Without any authorization rules in the nats-server, users can connect
-without authentication.
+without authentication.  This is expected and fine.
 
 Before nats-server 2.2.0, all authentication and authorization rules for
 a nats-server lived in an "authorization" block, defining users.  With
