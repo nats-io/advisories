@@ -1,0 +1,61 @@
+Subject: missing access controls for JS API in multi-tenancy
+
+NATS-advisory-ID: 2025-01
+Aliases: CVE-2025-30215, GHSA-fhg8-qxh5-7q3w
+Date: 2025-03-24
+Fixed-In: nats-server 2.11.1, 2.10.27
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS account system provides for multi-tenancy and isolation.
+JetStream provides for persistent storage of messages and at-least-once
+guarantees.
+
+
+Problem Description:
+
+The management of JetStream assets happens with messages in the `$JS.`
+subject namespace in the system account; this is partially exposed into
+regular accounts to allow account holders to manage their assets.
+
+Some of the JS API requests were missing access controls, allowing any
+user with JS management permissions in any account to perform certain
+administrative actions on any JS asset in any other account.
+At least one of the unprotected APIs allows for data destruction.
+None of the affected APIs allow disclosing stream contents.
+
+
+Affected versions:
+
+NATS Server:
+ * Version 2 from v2.2.0 onwards, prior to v2.11.1 or v2.10.27
+
+
+Workarounds:
+
+None
+
+
+Solution:
+
+Upgrade the NATS server to a fixed version.
+
+
+Credits:
+
+This problem was reported by GitHub user @zarqman: <https://github.com/zarqman>
+on 2025-03-05.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2025-01.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-fhg8-qxh5-7q3w>
+ * MITRE CVE entry:
+   `https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-FIXME`
+
