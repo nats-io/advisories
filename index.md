@@ -2,7 +2,7 @@
 
 * [Security Note 2025-01](CVE/secnote-2025-01.txt)
   + `CVE-2025-30215`; `GHSA-fhg8-qxh5-7q3w`
-  + _2025-03-24_ (FIXME)
+  + _2025-04-08_
 * [Security Note 2023-02](CVE/secnote-2023-02.txt) (aka CVE-2023-46129)
   + nkeys: xkeys Seal encryption used fixed key for all encryption
   + `CVE-2023-46129`; `GHSA-mr45-rx8q-wcm9`
