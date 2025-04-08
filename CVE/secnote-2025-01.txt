@@ -46,8 +46,7 @@ Upgrade the NATS server to a fixed version.
 
 Credits:
 
-This problem was reported by GitHub user @zarqman: <https://github.com/zarqman>
-on 2025-03-05.
+This problem was reported by Thomas Morgan on 2025-03-05.
 
 
 References:
