@@ -1,7 +1,7 @@
 Subject: missing access controls for JS API in multi-tenancy
 
 NATS-advisory-ID: 2025-01
-Aliases: CVE-2025-30215, GHSA-fhg8-qxh5-7q3w
+Aliases: CVE-2025-30215, GHSA-fhg8-qxh5-7q3w, GO-2025-3600
 Date: 2025-04-08
 Fixed-In: nats-server 2.11.1, 2.10.27
 
@@ -57,4 +57,5 @@ References:
    <https://github.com/nats-io/nats-server/security/advisories/GHSA-fhg8-qxh5-7q3w>
  * MITRE CVE entry:
    <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-30215>
-
+ * Go Vulnerability Database entry:
+   <https://osv.dev/vulnerability/GO-2025-3600>
