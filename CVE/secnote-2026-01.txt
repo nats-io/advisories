@@ -1,0 +1,53 @@
+Subject: Golang TLS bug affecting rare configurations
+
+NATS-advisory-ID: 2026-01
+Aliases: CVE-2025-68121
+Date: 2026-02-04
+Fixed-In: TBD
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server supports many different authentication options,
+including Mutual TLS (mTLS) which uses Client TLS Certificates.
+
+
+Public Notice:
+
+The release of Go 1.25.7 includes a security notice for CVE-2025-68121.
+The NATS Maintainers have not independently verified exploitability, but
+we believe based upon the description that some very rare configurations
+of the nats-server may be susceptible.
+
+Your configuration would need to use Mutual TLS (mTLS) configured with
+different Certificate Authority trust anchor bundles for different
+roles, such as for WebSocket support or the monitoring port, than for
+the base client connection role.
+
+The NATS Maintainers consider this a sufficiently unlikely deployment
+scenario that we are not expediting a release of the nats-server rebuilt
+with a new release of Go.
+
+The next release of the NATS Server will be built with a version of Go
+which fixes this CVE.
+
+If you are affected in the meantime, please either rebuild the
+nats-server yourself with a fixed Go version or contact your vendor
+for assistance.
+
+
+Affected Versions:
+ * NATS Server: any release built with Go before 1.25.7 or 1.24.13
+   + It's a build environment issue, not a code issue within thed
+     NATS Server
+
+Workarounds:
+
+Rebuild the NATS Server with a current Go release.
+
+References:
+
+* Go Release Announcement for 1.25.7 & 1.24.13:
+  <https://groups.google.com/g/golang-announce/c/K09ubi9FQFk>
