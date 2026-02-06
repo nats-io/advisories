@@ -1,5 +1,9 @@
 ## NATS Advisories
 
+* [Security Note 2026-01](CVE/secnote-2026-01.txt)
+  + Golang TLS bug affecting rare configurations
+  + `CVE-2025-68121` (Golang)
+  + _2026-02-04_
 * [Security Note 2025-01](CVE/secnote-2025-01.txt)
   + `CVE-2025-30215`; `GHSA-fhg8-qxh5-7q3w`; `GO-2025-3600`
   + _2025-04-08_
