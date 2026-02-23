@@ -1,5 +1,9 @@
 ## NATS Advisories
 
+* [Security Note 2026-02](CVE/secnote-2026-02.txt)
+  + nats-server websockets pre-auth memory DoS
+  + `CVE-2026-27571` ; `GHSA-qrvq-68c2-7grw`
+  + _2026-02-23_
 * [Security Note 2026-01](CVE/secnote-2026-01.txt)
   + Golang TLS bug affecting rare configurations
   + `CVE-2025-68121` (Golang)

@@ -1,0 +1,76 @@
+Subject: nats-server WebSockets pre-auth memory DoS
+
+NATS-advisory-ID: 2026-02
+Aliases: CVE-2026-27571, GHSA-qrvq-68c2-7grw
+Date: 2026-02-23
+Fixed-In: 2.11.12, 2.12.3
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+When using WebSockets, a malicious client can cause excessive memory
+consumption via compression, before authentication.
+
+
+Problem Description:
+
+The WebSockets handling of NATS messages handles compressed messages via the
+WebSockets negotiated compression. The implementation bound the memory size of
+a NATS message but did not independently bound the memory consumption of the
+memory stream when constructing a NATS message which might then fail
+validation for size reasons.
+
+An attacker can use a compression bomb to cause excessive memory consumption,
+often resulting in the operating system terminating the server process.
+
+The use of compression is negotiated before authentication, so this does not
+require valid NATS credentials to exploit.
+
+The fix was to bounds the decompression to fail once the message was too
+large, instead of continuing on.
+
+
+Affected versions:
+
+NATS Server:
+ * Version 2 from v2.2.0 onwards, prior to v2.11.12 or v2.12.3
+
+Note that the fix was committed to public git on 2025-12-08 via
+PR 7625 (commit f77fb7c45) and was not called out as a security problem
+and the maintainers inadvertently did not request a CVE.
+
+Per our Advisory Policy, a DoS attack which can be triggered without the
+need for an account warrants a CVE.  A DoS which requires an account does
+not warrant a CVE, even if the account is configured to not require
+authentication.
+
+
+Workarounds:
+
+This only affects deployments which use WebSockets and which expose the
+network port to untrusted end-points.  If able to do so, a defense in depth
+of restricting either of these will mitigate the attack.
+
+
+Solution:
+
+Upgrade the NATS server to a fixed version.
+
+
+Credits:
+
+This was reported to the NATS maintainers by Pavel Kohout of Aisle Research
+(www.aisle.com).
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-02.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-qrvq-68c2-7grw>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-27571>
+
