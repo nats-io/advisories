@@ -1,5 +1,13 @@
 ## NATS Advisories
 
+* [Security Note 2026-04](CVE/secnote-2026-04.txt)
+  + nats-server leafnodes pre-auth server panic
+  + `CVE-2026-29785` ; `GHSA-52jh-2xxh-pwh6`
+  + _2026-03-09_
+* [Security Note 2026-03](CVE/secnote-2026-03.txt)
+  + nats-server WebSockets pre-auth remote server crash
+  + `CVE-2026-27889` ; `GHSA-pq2q-rcw4-3hr6`
+  + _2026-03-09_
 * [Security Note 2026-02](CVE/secnote-2026-02.txt)
   + nats-server websockets pre-auth memory DoS
   + `CVE-2026-27571` ; `GHSA-qrvq-68c2-7grw`

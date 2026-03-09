@@ -1,0 +1,72 @@
+Subject: nats-server leafnodes pre-auth server panic
+
+NATS-advisory-ID: 2026-03
+Aliases: CVE-2026-29785, GHSA-52jh-2xxh-pwh6
+Date: 2026-03-09
+Fixed-In: v2.11.14, v2.12.5
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+When configured to accept leafnode connections (for a hub/spoke topology
+of multiple nats-servers), then the default configuration allows for
+negotiating compression; a malicious remote NATS server can trigger a
+server panic via that compression.
+
+
+Problem Description:
+
+If the nats-server has the "leafnode" configuration enabled (not
+default), then anyone who can connect can crash the nats-server by
+triggering a panic. This happens pre-authentication and requires that
+compression be enabled (which it is, by default, when leafnodes are
+used).
+
+Context: a NATS server can form various clustering topologies, including
+local clusters, and superclusters of clusters, but leafnodes allow for
+separate administrative domains to link together with limited data
+communication; eg, a server in a moving vehicle might use a local
+leafnode for agents to connect to, and sync up to a central service as
+and when available. The leafnode configuration here is where the central
+server allows other NATS servers to connect into it, almost like regular
+NATS clients. Documentation examples typically use port 7422 for
+leafnode communications.
+
+
+Affected versions:
+
+NATS Server:
+ * Version 2, prior to v2.11.14 or v2.12.5
+
+
+Workarounds:
+
+Disable compression on the leafnode port:
+
+    leafnodes {
+      port: 7422
+      compression: off
+    }
+
+
+Solution:
+
+Upgrade the NATS server to a fixed version.
+
+
+Credits:
+
+This was discovered internally by Synadia staff, using an AI analysis
+tool.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-04.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-52jh-2xxh-pwh6>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-29785>

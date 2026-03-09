@@ -1,0 +1,54 @@
+Subject: nats-server WebSockets pre-auth remote server crash
+
+NATS-advisory-ID: 2026-03
+Aliases: CVE-2026-27889, GHSA-pq2q-rcw4-3hr6
+Date: 2026-03-09
+Fixed-In: v2.11.14, v2.12.5
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+When using WebSockets, a malicious client can trigger a server crash
+with crafted frames, before authentication.
+
+
+Problem Description:
+
+A missing sanity check on a WebSockets frame could trigger a server
+panic in the nats-server.  This happens before authentication, and so is
+exposed to anyone who can connect to the websockets port.
+
+
+Affected versions:
+
+NATS Server:
+ * Version 2 from v2.2.0 onwards, prior to v2.11.14 or v2.12.5
+
+
+Workarounds:
+
+This only affects deployments which use WebSockets and which expose the
+network port to untrusted end-points.  If able to do so, a defense in depth
+of restricting either of these will mitigate the attack.
+
+
+Solution:
+
+Upgrade the NATS server to a fixed version.
+
+
+Credits:
+
+This was reported to the NATS maintainers by GitHub user Mistz1.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-03.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-pq2q-rcw4-3hr6>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-27889>
