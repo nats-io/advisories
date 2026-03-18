@@ -1,5 +1,11 @@
 ## NATS Advisories
 
+* **Security release scheduled for Tuesday 2026-03-24, midday US/Eastern**
+  + A significant number of security-impacting fixes will be in the upcoming
+    releases of **nats-server 2.12.6 &amp; 2.11.15**
+  + Includes fixes for ACL bypasses, unauthenticated server panics, and
+    information disclosure
+
 * [Security Note 2026-04](CVE/secnote-2026-04.txt)
   + nats-server leafnodes pre-auth server panic
   + `CVE-2026-29785` ; `GHSA-52jh-2xxh-pwh6`
