@@ -1,0 +1,42 @@
+Subject: nats-server: Pre-auth server panic in leafnode handling
+
+NATS-advisory-ID: 2026-10
+Aliases: CVE-2026-33218, GHSA-vprv-35vv-q339
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server allows hub/spoke topologies using "leafnode" connections
+by other nats-servers.
+
+
+Problem Description:
+
+A client which can connect to the leafnode port can crash the
+nats-server with a certain malformed message pre-authentication.
+
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+
+Workarounds:
+
+1. Disable leafnode support if not needed.
+2. Restrict network connections to your leafnode port, if plausible
+   without compromising the service offered.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-10.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-vprv-35vv-q339>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33218>

@@ -1,0 +1,43 @@
+Subject: nats-server: Message tracing can be redirected to arbitrary subject
+
+NATS-advisory-ID: 2026-15
+Aliases: CVE-2026-33249, GHSA-8m2x-3m6q-6w8j
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server supports telemetry on messages, using the per-message
+NATS headers.
+
+
+Problem Description:
+
+A valid client which uses message tracing headers can indicate that the
+trace messages can be sent to an arbitrary valid subject, including
+those to which the client does not have publish permission.
+
+The payload is a valid trace message and not chosen by the attacker.
+
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+
+Workarounds:
+
+None.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-15.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-8m2x-3m6q-6w8j>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33249>

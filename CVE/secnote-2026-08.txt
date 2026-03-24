@@ -1,0 +1,50 @@
+Subject: nats-server: Leafnode spoofing of Nats-Request-Info identity information
+
+NATS-advisory-ID: 2026-08
+Aliases: CVE-2026-33246, GHSA-55h8-8g96-x4hj
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server allows hub/spoke topologies using "leafnode" connections
+by other nats-servers.  NATS messages can have headers.
+
+Problem Description:
+
+The nats-server offers a `Nats-Request-Info:` message header, providing
+information about a request.  This is supposed to provide enough
+information to allow for account/user identification, such that NATS
+clients could make their own decisions on how to trust a message,
+provided that they trust the nats-server as a broker.
+
+A leafnode connecting to a nats-server is not fully trusted unless the
+system account is bridged too.  Thus identity claims should not have
+propagated unchecked.
+
+Thus NATS clients relying upon the Nats-Request-Info: header could be
+spoofed.
+
+Does not directly affect the nats-server itself, but the CVSS
+Confidentiality and Integrity scores are based upon what a hypothetical
+client might choose to do with this NATS header.
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+Workarounds:
+
+None.
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-08.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-55h8-8g96-x4hj>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33246>

@@ -1,0 +1,50 @@
+Subject: nats-server: mTLS DN-based identity auth bypass for some DN patterns
+
+NATS-advisory-ID: 2026-13
+Aliases: CVE-2026-33248, GHSA-3f24-pcvm-5jqc
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+One authentication model supported is mTLS, deriving the NATS client
+identity from properties of the TLS Client Certificate.
+
+
+Problem Description:
+
+When using mTLS for client identity, with verify_and_map to derive a
+NATS identity from the client certificate's Subject DN, certain patterns
+of RDN would not be correctly enforced, allowing for authentication
+bypass.
+
+This does require a valid certificate from a CA already trusted for
+client certificates, and DN naming patterns which the NATS maintainers
+consider highly unlikely.
+
+So this is an unlikely attack. Nonetheless, administrators who have been
+very sophisticated in their DN construction patterns might conceivably
+be impacted.
+
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+
+Workarounds:
+
+Review your CA issuing practices.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-13.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-3f24-pcvm-5jqc>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33248>

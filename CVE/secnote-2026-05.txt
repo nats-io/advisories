@@ -1,0 +1,39 @@
+Subject: nats-server MQTT plaintext password disclosure
+
+NATS-advisory-ID: 2025-05
+Aliases: CVE-2026-33216, GHSA-v722-jcv5-w7mc
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server provides an MQTT client interface.
+
+Problem Description:
+
+For MQTT deployments using usercodes/passwords: MQTT passwords are
+incorrectly classified as a non-authenticating identity statement (JWT)
+and exposed via monitoring endpoints.
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+Workarounds:
+
+Ensure your monitoring end-points are adequately secured.
+
+Best practice remains to not expose the monitoring endpoint to the
+Internet or other untrusted network users.
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-05.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-v722-jcv5-w7mc>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33216>

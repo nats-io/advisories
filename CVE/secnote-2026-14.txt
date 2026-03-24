@@ -1,0 +1,54 @@
+Subject: nats-server: credentials via command-line argv exposed to monitoring
+
+NATS-advisory-ID: 2026-14
+Aliases: CVE-2026-33247, GHSA-x6g4-f6q3-fqvv
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server provides an optional monitoring port, which provides
+access to sensitive data.  The nats-server can take certain
+configuration options on the command-line instead of requiring a
+configuration file.
+
+
+Problem Description:
+
+If a nats-server is run with static credentials for all clients provided
+via argv (the command-line), then those credentials are visible to any
+user who can see the monitoring port, if that too is enabled.
+
+The /debug/vars end-point contains an unredacted copy of argv.
+
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+
+Workarounds:
+
+The NATS Maintainers are bemused at the concept of someone deploying a
+real configuration using --pass to avoid a config file, but also
+enabling monitoring.
+
+Configure credentials inside a configuration file instead of via argv.
+
+Do not enable the monitoring port if using secrets in argv.
+
+Best practice remains to not expose the monitoring port to the Internet,
+or to untrusted network sources.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-14.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-x6g4-f6q3-fqvv>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33247>

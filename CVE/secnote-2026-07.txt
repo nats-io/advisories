@@ -1,0 +1,36 @@
+Subject: nats-server: MQTT ACLs ineffective
+
+NATS-advisory-ID: 2026-07
+Aliases: CVE-2026-33217, GHSA-jxxm-27vp-c3m5
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The nats-server provides an MQTT client interface.
+
+Problem Description:
+
+When using ACLs on message subjects, these ACLs were not applied in the
+$MQTT.> namespace, allowing MQTT clients to bypass ACL checks for MQTT
+subjects.
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+Workarounds:
+
+None.
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-07.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-jxxm-27vp-c3m5>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33217>

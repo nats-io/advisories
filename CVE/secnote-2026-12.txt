@@ -1,0 +1,42 @@
+Subject: nats-server: JetStream: Stream restore endpoint auth bypass
+
+NATS-advisory-ID: 2026-12
+Aliases: CVE-2026-33222, GHSA-9983-vrx2-fg9c
+Date: 2026-03-24
+Fixed-In: 2.12.6, 2.11.15
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The persistent storage feature, JetStream, has a management API which
+has many features, amongst which are backup and restore.
+
+
+Problem Description:
+
+Users with JetStream admin API access to restore one stream could
+restore to other stream names, impacting data which should have been
+protected against them.
+
+
+Affected Versions:
+
+ nats-server: any version before v2.12.6 or v2.11.15
+
+
+Workarounds:
+
+If you have Users who have limited JetStream restore permissions,
+temporarily remove those permissions.
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-12.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-9983-vrx2-fg9c>
+ * MITRE CVE entry:
+   <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-33222>

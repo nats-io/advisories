@@ -1,10 +1,59 @@
 ## NATS Advisories
 
-* **Security release scheduled for Tuesday 2026-03-24, midday US/Eastern**
-  + A significant number of security-impacting fixes will be in the upcoming
-    releases of **nats-server 2.12.6 &amp; 2.11.15**
-  + Includes fixes for ACL bypasses, unauthenticated server panics, and
-    information disclosure
+* [Security Note 2026-05](CVE/secnote-2026-05.txt)
+  + nats-server: MQTT plaintext password disclosure
+  + `CVE-2026-33216` ; `GHSA-v722-jcv5-w7mc`
+  + _2026-03-24_
+
+* [Security Note 2026-06](CVE/secnote-2026-06.txt)
+  + nats-server: MQTT hijacking via Client ID
+  + `CVE-2026-33215` ; `GHSA-fcjp-h8cc-6879`
+  + _2026-03-24_
+
+* [Security Note 2026-07](CVE/secnote-2026-07.txt)
+  + nats-server: MQTT ACLs ineffective
+  + `CVE-2026-33217` ; `GHSA-jxxm-27vp-c3m5`
+  + _2026-03-24_
+
+* [Security Note 2026-08](CVE/secnote-2026-08.txt)
+  + nats-server: Leafnode spoofing of Nats-Request-Info identity information
+  + `CVE-2026-33246` ; `GHSA-55h8-8g96-x4hj`
+  + _2026-03-24_
+
+* [Security Note 2026-09](CVE/secnote-2026-09.txt)
+  + nats-server: Internal identity header Nats-Request-Info spoofable
+  + `CVE-2026-33223` ; `GHSA-pwx7-fx9r-hr4h`
+  + _2026-03-24_
+
+* [Security Note 2026-10](CVE/secnote-2026-10.txt)
+  + nats-server: Pre-auth server panic in leafnode handling
+  + `CVE-2026-33218` ; `GHSA-vprv-35vv-q339`
+  + _2026-03-24_
+
+* [Security Note 2026-11](CVE/secnote-2026-11.txt)
+  + nats-server: WebSockets pre-auth DoS
+  + `CVE-2026-33219` ; `GHSA-8r68-gvr4-jh7j`
+  + _2026-03-24_
+
+* [Security Note 2026-12](CVE/secnote-2026-12.txt)
+  + nats-server: JetStream: Stream restore endpoint auth bypass
+  + `CVE-2026-33222` ; `GHSA-9983-vrx2-fg9c`
+  + _2026-03-24_
+
+* [Security Note 2026-13](CVE/secnote-2026-13.txt)
+  + nats-server: mTLS DN-based identity auth bypass for some DN patterns
+  + `CVE-2026-33248` ; `GHSA-3f24-pcvm-5jqc`
+  + _2026-03-24_
+
+* [Security Note 2026-14](CVE/secnote-2026-14.txt)
+  + nats-server: credentials via command-line argv exposed to monitoring
+  + `CVE-2026-33247` ; `GHSA-x6g4-f6q3-fqvv`
+  + _2026-03-24_
+
+* [Security Note 2026-15](CVE/secnote-2026-15.txt)
+  + nats-server: Message tracing can be redirected to arbitrary subject
+  + `CVE-2026-33249` ; `GHSA-8m2x-3m6q-6w8j`
+  + _2026-03-24_
 
 * [Security Note 2026-04](CVE/secnote-2026-04.txt)
   + nats-server leafnodes pre-auth server panic
