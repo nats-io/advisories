@@ -42,6 +42,7 @@ Upgrade the NATS server to a fixed version.
 Credits:
 
 This was reported to the NATS maintainers by GitHub user Mistz1.
+Also independently reported by GitHub user jiayuqi7813.
 
 
 References:
