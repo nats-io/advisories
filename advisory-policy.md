@@ -89,7 +89,7 @@ security responsibility to ensure it is talking to the correct safe server.
 
 #### For a NATS server as a leafnode
 
-All the policy statements regarding a NATS client applies, but we go a little
+All the policy statements regarding a NATS client apply, but we go a little
 further.  While a malicious Hub server might be able to cause us to crash, or
 spin CPU or any number of other things, it **must not be able to cross our
 account boundaries**.
