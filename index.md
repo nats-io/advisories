@@ -1,5 +1,9 @@
 ## NATS Advisories
 
+* **Security release scheduled for Tuesday 2026-04-14, midday US/Eastern**
+  + A number of security-impacting fixes will be included in our releases of
+    nats-server 2.12.7 &amp; 2.11.16.
+
 * [Security Note 2026-05](CVE/secnote-2026-05.txt)
   + nats-server: MQTT plaintext password disclosure
   + `CVE-2026-33216` ; `GHSA-v722-jcv5-w7mc`
