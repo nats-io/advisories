@@ -1,0 +1,52 @@
+Subject: nats-server: Pre-auth panic and server hang via malformed JWT issuer (missing Ed25519 length check in nkeys)
+
+NATS-advisory-ID: 2026-23
+Aliases: GHSA-g33f-6538-grxh
+Date: 2026-06-29
+Fixed-In: v2.14.2, v2.12.10.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server can run in operator mode, deriving client identities and
+permissions from JWT credentials signed with NKeys.
+
+
+Problem Description:
+
+An unauthenticated client could cause an operator-mode NATS Server to
+panic while processing a client JWT before authentication completed.
+
+The issue involved accepting a truncated public account key, which could
+later reach Ed25519 signature verification with an invalid length. The
+malformed key was taken from JWT claims processed during authentication
+before a client identity had been established.
+
+
+Affected Versions:
+
+Versions v2.14.1, v2.12.9 and below are vulnerable.
+The issue is fixed in v2.14.2 and v2.12.10.
+
+
+Workarounds:
+
+No known workaround for operator-mode deployments using JWT authentication. Upgrade to a fixed release.
+
+Deployments not using operator-mode JWT authentication are not affected by this issue.
+
+
+Credit:
+
+GitHub user @queencitycyber
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-23.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-g33f-6538-grxh>

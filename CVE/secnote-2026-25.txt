@@ -1,0 +1,50 @@
+Subject: nats-server: MQTT partial CONNECT packets can exhaust pre-auth memory
+
+NATS-advisory-ID: 2026-25
+Aliases: GHSA-r72h-j7qq-v6qg
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server supports MQTT clients, including authentication and parsing of MQTT CONNECT packets.
+
+
+Problem Description:
+
+An unauthenticated MQTT client could cause the server to retain large
+incomplete MQTT CONNECT packets before authentication completed.
+
+The parser retained partial pre-authentication packet data while waiting
+for the advertised MQTT packet length to be completed. An attacker could
+therefore consume server memory until authentication timeouts closed the
+connections.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+Deployments not using MQTT are not affected.
+Deployments that need MQTT should upgrade to a fixed release.
+
+
+Credit:
+
+Asritha Bodepudi, Trail of Bits
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-25.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-r72h-j7qq-v6qg>

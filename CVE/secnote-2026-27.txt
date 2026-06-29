@@ -1,0 +1,56 @@
+Subject: nats-server: MQTT-over-WebSocket Path Can Crash WebSocket-Only JetStream Servers Before MQTT Is Enabled
+
+NATS-advisory-ID: 2026-27
+Aliases: GHSA-p957-7v2w-g93g
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server can accept client connections over WebSocket and can
+also support MQTT over WebSocket when MQTT is configured.
+
+
+Problem Description:
+
+A WebSocket listener could route requests for the MQTT-over-WebSocket
+path into MQTT handling even when MQTT was not configured.
+
+On affected deployments, an unauthenticated client with access to the
+WebSocket listener could reach uninitialized MQTT state and crash the
+server process.
+
+This affects deployments that enable WebSocket while leaving MQTT
+disabled. Deployments where MQTT is intentionally configured initialize
+the MQTT state and are not affected in the same way.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+Deployments not using WebSocket are not affected.
+Deployments using both WebSockets and MQTT are not affected.
+No known workaround for deployments that need WebSocket without MQTT-over-WebSocket.
+Upgrade to a fixed release.
+
+
+Credit:
+
+Vasco Franco, Trail of Bits
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-27.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-p957-7v2w-g93g>

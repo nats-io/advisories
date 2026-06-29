@@ -1,0 +1,61 @@
+Subject: nats-server: Queue Subscribe Authz Bypass
+
+NATS-advisory-ID: 2026-18
+Aliases: GHSA-jx8g-9g95-6322
+Date: 2026-06-29
+Fixed-In: v2.14.0, v2.12.7, v2.11.16
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server permission system supports subject-based allow and deny
+rules for subscriptions, including queue subscriptions.
+
+
+Problem Description:
+
+An authenticated user with a specific combination of subscription deny
+permissions could bypass a plain subject deny rule by using a queue
+subscription.
+
+The queue-specific deny evaluation could override the result of a plain
+subject deny evaluation, allowing the subscription to proceed when the
+queue name itself was not denied.
+
+This could allow the user to receive messages on subjects that the
+account configuration intended to deny.
+
+This requires the affected user to have valid credentials and
+permissions that combine plain subject denies with queue-specific deny
+rules.
+
+
+Affected Versions:
+
+Versions v2.12.6, v2.11.15 and below are vulnerable.
+The issue is fixed in v2.14.0, v2.12.7 and v2.11.16.
+
+
+Workarounds:
+
+Review users that combine plain subscription deny rules with
+queue-specific deny rules.
+
+Where possible, avoid granting broad subscription permissions to users
+that also depend on queue-specific deny rules until upgraded.
+
+
+Credit:
+
+XlabAI Team of Tencent Xuanwu Lab
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-18.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-jx8g-9g95-6322>

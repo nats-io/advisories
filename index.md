@@ -1,8 +1,75 @@
 ## NATS Advisories
 
-* **Security release scheduled for Tuesday 2026-04-14, midday US/Eastern**
-  + A number of security-impacting fixes will be included in our releases of
-    nats-server 2.12.7 &amp; 2.11.16.
+#### 2026-06
+
+* [Security Note 2026-16](CVE/secnote-2026-16.txt)
+  + nats-server: Route API Auth Bypass
+  + `GHSA-38x3-76xf-cq45`
+  + _2026-06-29_
+
+* [Security Note 2026-17](CVE/secnote-2026-17.txt)
+  + nats-server: Subscribe Authz Bypass via Wildcard-Overlap
+  + `GHSA-wh7g-5m82-pmhr`
+  + _2026-06-29_
+
+* [Security Note 2026-18](CVE/secnote-2026-18.txt)
+  + nats-server: Queue Subscribe Authz Bypass
+  + `GHSA-jx8g-9g95-6322`
+  + _2026-06-29_
+
+* [Security Note 2026-19](CVE/secnote-2026-19.txt)
+  + nats-server: Pre-auth server crash via double INFO in leafnode handshake: incomplete fix for CVE-2026-29785 and CVE-2026-33218
+  + `GHSA-3g5q-cfh2-cq67`
+  + _2026-06-29_
+
+* [Security Note 2026-20](CVE/secnote-2026-20.txt)
+  + nats-server: Incomplete fix for CVE-2026-33249: Leaf node connections bypass Nats-Trace-Dest permission check
+  + `GHSA-p3j5-5hrq-p75h`
+  + _2026-06-29_
+
+* [Security Note 2026-21](CVE/secnote-2026-21.txt)
+  + nats-server: MQTT subscribe ACL bypass via $MQTT.deliver.pubrel prefix (incomplete fix for CVE-2026-33217)
+  + `GHSA-4g68-3pwx-5vfj`
+  + _2026-06-29_
+
+* [Security Note 2026-22](CVE/secnote-2026-22.txt)
+  + nats-server: MQTT SUBSCRIBE Protocol Injection via Leaf Node/Route Forwarding allows arbitrary NATS command injection
+  + `GHSA-qrcv-3558-gj4f`
+  + _2026-06-29_
+
+* [Security Note 2026-23](CVE/secnote-2026-23.txt)
+  + nats-server: Pre-auth panic and server hang via malformed JWT issuer (missing Ed25519 length check in nkeys)
+  + `GHSA-g33f-6538-grxh`
+  + _2026-06-29_
+
+* [Security Note 2026-24](CVE/secnote-2026-24.txt)
+  + nats-server: `no_auth_user` pre-CONNECT fast path bypasses user connection restrictions
+  + `GHSA-hmmp-q8cx-v964`
+  + _2026-06-29_
+
+* [Security Note 2026-25](CVE/secnote-2026-25.txt)
+  + nats-server: MQTT partial CONNECT packets can exhaust pre-auth memory
+  + `GHSA-r72h-j7qq-v6qg`
+  + _2026-06-29_
+
+* [Security Note 2026-26](CVE/secnote-2026-26.txt)
+  + nats-server: MQTT retained and QoS replay bypass subscribe deny filters
+  + `GHSA-7qmq-8cc4-hxwg`
+  + _2026-06-29_
+
+* [Security Note 2026-27](CVE/secnote-2026-27.txt)
+  + nats-server: MQTT-over-WebSocket Path Can Crash WebSocket-Only JetStream Servers Before MQTT Is Enabled
+  + `GHSA-p957-7v2w-g93g`
+  + _2026-06-29_
+
+* [Security Note 2026-28](CVE/secnote-2026-28.txt)
+  + nats-server: Remote crash via integer overflow in Connz pagination
+  + `GHSA-q59r-vq66-pxc2`
+  + _2026-06-29_
+
+----------------------------------------
+
+#### 2026-03
 
 * [Security Note 2026-05](CVE/secnote-2026-05.txt)
   + nats-server: MQTT plaintext password disclosure
@@ -58,6 +125,10 @@
   + nats-server: Message tracing can be redirected to arbitrary subject
   + `CVE-2026-33249` ; `GHSA-8m2x-3m6q-6w8j`
   + _2026-03-24_
+
+----------------------------------------
+
+#### Older
 
 * [Security Note 2026-04](CVE/secnote-2026-04.txt)
   + nats-server leafnodes pre-auth server panic

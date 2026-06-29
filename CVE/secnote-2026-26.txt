@@ -1,0 +1,57 @@
+Subject: nats-server: MQTT retained and QoS replay bypass subscribe deny filters
+
+NATS-advisory-ID: 2026-26
+Aliases: GHSA-7qmq-8cc4-hxwg
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server MQTT support includes retained messages and QoS1+
+durable delivery. NATS subscription permissions can allow broad wildcard
+subscriptions while denying more sensitive subjects.
+
+
+Problem Description:
+
+MQTT retained message delivery and QoS1+ durable replay could deliver
+messages whose original topics matched a subscriber's configured
+subscribe deny rules.
+
+Normal live delivery applied the delivery-time deny check. These MQTT
+delivery paths did not consistently recheck the concrete original topic
+before sending the MQTT PUBLISH to the subscriber.
+
+The issue affects MQTT subscribers with broad wildcard subscribe
+permissions where more specific topics are denied. Normal live delivery
+can be blocked while retained or replayed delivery still sends the
+denied topic.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+No known workaround for deployments that require MQTT.
+Upgrade to a fixed release. Deployments not using MQTT are not affected.
+
+
+Credit:
+
+Asritha Bodepudi, Trail of Bits
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-26.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-7qmq-8cc4-hxwg>

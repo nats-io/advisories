@@ -1,0 +1,52 @@
+Subject: nats-server: Subscribe Authz Bypass via Wildcard-Overlap
+
+NATS-advisory-ID: 2026-17
+Aliases: GHSA-wh7g-5m82-pmhr
+Date: 2026-06-29
+Fixed-In: v2.14.0, v2.12.7, v2.11.16
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server permission system supports wildcard subscription permissions,
+with deny rules taking precedence over allow rules.
+
+
+Problem Description:
+
+An authenticated user could receive messages on denied subjects when a
+wildcard subscription overlapped with a configured wildcard deny rule
+but was not a subset of it.
+If the subscription was a queue subscription, this could also affect
+delivery to legitimate queue consumers.
+
+The issue requires valid credentials and a permission configuration with
+overlapping wildcard allow and deny patterns.
+
+
+Affected Versions:
+
+Versions v2.12.6, v2.11.15 and below are vulnerable.
+The issue is fixed in v2.14.0, v2.12.7 and v2.11.16.
+
+
+Workarounds:
+
+None.
+
+
+Credit:
+
+XlabAI Team of Tencent Xuanwu Lab
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-17.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-wh7g-5m82-pmhr>
+

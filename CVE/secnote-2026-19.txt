@@ -1,0 +1,50 @@
+Subject: nats-server: Pre-auth server crash via double INFO in leafnode handshake: incomplete fix for CVE-2026-29785 and CVE-2026-33218
+
+NATS-advisory-ID: 2026-19
+Aliases: GHSA-3g5q-cfh2-cq67
+Date: 2026-06-29
+Fixed-In: v2.12.8, v2.11.17.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server supports leafnode connections between servers.
+
+
+Problem Description:
+
+An unauthenticated peer with network access to a leafnode listener with
+compression enabled could crash the server during the pre-authentication
+leafnode handshake.
+
+The issue occurs after repeated leafnode INFO protocol messages before a
+leafnode connection had completed authentication and account setup.
+Certain state expected later in the handshake could be nil and then
+later dereferenced, causing a process panic.
+
+
+Affected Versions:
+
+Versions v2.12.7, v2.11.16 and below are vulnerable.
+The issue is fixed in v2.12.8 and v2.11.17.
+
+
+Workarounds:
+
+Disabling leafnode compression can mitigate the issue until fixed versions are deployed.
+
+
+Credit:
+
+Koda Reef
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-19.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-3g5q-cfh2-cq67>

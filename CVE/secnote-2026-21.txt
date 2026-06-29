@@ -1,0 +1,53 @@
+Subject: nats-server: MQTT subscribe ACL bypass via $MQTT.deliver.pubrel prefix (incomplete fix for CVE-2026-33217)
+
+NATS-advisory-ID: 2026-21
+Aliases: GHSA-4g68-3pwx-5vfj
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server MQTT support uses internal $MQTT.* subjects to implement MQTT protocol features such as QoS handling.
+
+
+Problem Description:
+
+An authenticated MQTT client could subscribe to an internal MQTT
+delivery subject that was not intended to be available to clients.
+
+This bypassed configured subscribe permissions for that internal subject
+family and exposed MQTT QoS2 protocol metadata for sessions in the
+account. Message payloads were not exposed through this path.
+
+This issue was related to an incomplete restriction on internal MQTT
+subjects. It affected MQTT users whose ordinary subscribe permissions
+would not otherwise allow access to those internal subjects.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+No known workaround for deployments that require MQTT. Upgrade to a
+fixed release. Deployments not using MQTT are not affected.
+
+
+Credit:
+
+Koda Reef
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-21.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-4g68-3pwx-5vfj>

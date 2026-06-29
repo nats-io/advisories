@@ -1,0 +1,58 @@
+Subject: nats-server: Remote crash via integer overflow in Connz pagination
+
+NATS-advisory-ID: 2026-28
+Aliases: GHSA-q59r-vq66-pxc2
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server exposes account-scoped monitoring requests through
+system subjects, including connection information for the requesting
+account.
+
+
+Problem Description:
+
+A client able to send account-scoped connection monitoring requests
+could crash the server by supplying pagination values that overflowed
+internal arithmetic.
+
+The affected request path is normally scoped to the requester's own
+account, but the overflow occurred before the response window was safely
+bounded.
+
+On no-auth deployments, any client with network access to the client
+listener could reach this path. In multi-tenant deployments, impact
+depends on whether a tenant can publish to the imported account
+monitoring request subject.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+Restrict publish access to system request subjects for untrusted users.
+Avoid no-auth deployments where untrusted clients can publish to system
+request subjects.
+
+
+Credit:
+
+GitHub user @larrasket
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-28.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-q59r-vq66-pxc2>

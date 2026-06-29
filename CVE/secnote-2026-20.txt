@@ -1,0 +1,57 @@
+Subject: nats-server: Incomplete fix for CVE-2026-33249: Leaf node connections bypass Nats-Trace-Dest permission check
+
+NATS-advisory-ID: 2026-20
+Aliases: GHSA-p3j5-5hrq-p75h
+Date: 2026-06-29
+Fixed-In: v2.14.3, v2.12.12.
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server supports leafnode connections between servers and
+message tracing through NATS headers.
+
+
+Problem Description:
+
+Message trace destination checks were applied to ordinary client
+connections but not consistently to messages arriving through leafnode
+connections.
+
+A leafnode operator could cause trace events to be sent to subjects that
+would not otherwise be permitted and could use trace-only behavior to
+prevent normal delivery or storage of affected messages.
+
+Trace events can include routing, subscription, account, service import
+and JetStream metadata. The payload of the original application message
+is not chosen through the trace event itself.
+
+
+Affected Versions:
+
+Versions v2.14.2, v2.12.11 and below are vulnerable.
+The issue is fixed in v2.14.3 and v2.12.12.
+
+
+Workarounds:
+
+Where possible, avoid granting publish paths from less-trusted leaf
+nodes into subjects for which trace-only behavior would affect delivery
+guarantees. No other known workarounds are available aside from
+upgrading to a fixed release.
+
+
+Credit:
+
+Koda Reef
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-20.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-p3j5-5hrq-p75h>

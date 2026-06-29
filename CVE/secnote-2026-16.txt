@@ -1,0 +1,55 @@
+Subject: nats-server: Route API Auth Bypass
+
+NATS-advisory-ID: 2026-16
+Aliases: GHSA-38x3-76xf-cq45
+Date: 2026-06-29
+Fixed-In: v2.14.0, v2.12.7, v2.11.16
+
+
+Background:
+
+NATS.io is a high performance open source pub-sub distributed communication
+technology, built for the cloud, on-premise, IoT, and edge computing.
+
+The NATS Server supports clusters, gateways and leaf nodes for distributed
+deployments. These listener types have their own authentication and protocol
+handling.
+
+
+Problem Description:
+
+When no_auth_user was configured, a parser fast path intended for
+ordinary client connections could also apply to some inter-server
+connection types.
+
+An unauthenticated peer with network access to an affected route or
+leafnode listener could bypass the expected inter-server authentication
+step and operate with privileges associated with that connection type.
+
+The issue was triggered before the inter-server CONNECT authentication
+flow completed, so the peer did not need valid route or leafnode
+credentials.
+
+
+Affected Versions:
+
+Versions v2.12.6, v2.11.15 and below are vulnerable.
+The issue is fixed in v2.14.0, v2.12.7 and v2.11.16.
+
+
+Workarounds:
+
+Do not combine no_auth_user with route or leafnode listeners until upgraded.
+
+
+Credit:
+
+XlabAI Team of Tencent Xuanwu Lab
+
+
+References:
+
+ * This document is canonically:
+   <https://advisories.nats.io/CVE/secnote-2026-16.txt>
+ * GHSA advisory:
+   <https://github.com/nats-io/nats-server/security/advisories/GHSA-38x3-76xf-cq45>
